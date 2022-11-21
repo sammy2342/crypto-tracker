@@ -1,0 +1,48 @@
+.navbar-container { 
+    background-color: #101113;
+    margin: 0;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.logo-coin-container { 
+    margin-right: auto;
+    margin-left: 50px;
+    color: gold;
+    font-size: 20px;
+    font-weight: 900;
+    font-style: normal;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar-links-container { 
+    text-decoration: #101113;
+    margin-right: 35px;
+}
+
+.navbar-links {
+    text-decoration: none;
+    color: whitesmoke;
+    margin-right: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    background: none;
+}
+
+.navbar-links:hover {
+    color: goldenrod;
+    box-shadow: 0px 0px 100px 0px gold;
+    transition: 1s ease-in-out;
+    background: none;
+    cursor: pointer;
+}
+
+.user-title-navbar {
+    color: crimson;
+    margin-right: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}

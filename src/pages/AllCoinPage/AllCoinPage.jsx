@@ -39,7 +39,7 @@ export default function AllCoinPage() {
                         <span className='coin-image'><img src={coin.image} alt="" /></span>
                         <span>{coin.name}</span>
                         <span>${coin.current_price}</span>
-                        <span>{coin.ath_change_percentage}</span>
+                        <span className='coin-price-change'>{coin.price_change_24h.toFixed(2)}</span>
                         <span>{coin.market_cap}</span>
                     </div>
                 ))}

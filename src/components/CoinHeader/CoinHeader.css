@@ -3,6 +3,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-top: 30px;
 }
 
 .coin-name-container {
@@ -35,7 +36,7 @@
 
 .alice-carousel__prev-btn-wrapper {
     margin-left: auto;
-    margin-right: 600px;
+    margin-right: 450px;
     padding: none;
 }
 
