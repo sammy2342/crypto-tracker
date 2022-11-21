@@ -17,7 +17,7 @@ export default function App() {
         <>
           <NavBar user={user} setUser={setUser} />
           <Routes>
-            <Route path="/orders/new" element={<AllCoinPage />} />
+            <Route path="/coins" element={<AllCoinPage />} />
             <Route path="/orders" element={<OrderHistoryPage />} />
           </Routes>
         </>
