@@ -62,13 +62,13 @@ img {
 
 
 .coin-header-page { 
-    background-image: url(./abstract-golden-particles-floating-in-space-free-video.jpeg);
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(./abstract-golden-particles-floating-in-space-free-video.jpeg);
     height: 550px;
     width: 100%;
     margin: 0;
     padding: 0;
-    background-repeat: no-repeat;
-    background-size: cover;
+    /* background-repeat: no-repeat;
+    background-size: cover; */
 }
 
 .coin-title-home-page { 

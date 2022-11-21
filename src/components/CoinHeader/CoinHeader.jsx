@@ -41,3 +41,10 @@ export default function CoinHeader({coins, setCoins}) {
         </div>
     )
 }
+
+/**
+ * white rice
+ * chili garlic chicken, spicy salmon, spicy tuna
+ * onion cilantro serrano peppers
+ * classic
+ */
