@@ -1,0 +1,54 @@
+.coin-ticker-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.coin-name-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+
+.name-coin-ticker {
+    color: white;
+    font-size: 30px;
+}
+
+.symbol-coin-ticker {
+    color: gold;
+    font-size: 20px;
+}
+
+#coin-ticker-image {
+    height: 150px;
+    width: 150px;
+}
+
+.alice-carousel__dots {
+    visibility: hidden;
+}
+
+.alice-carousel__prev-btn-wrapper {
+    margin-left: auto;
+    margin-right: 600px;
+    padding: none;
+}
+
+.alice-carousel__next-btn-wrapper {
+    margin-right: auto;
+}
+
+.alice-carousel__next-btn-item {
+    color: rgb(29, 75, 182);
+    font-size: 35px;
+}
+
+.alice-carousel__prev-btn-item {
+    color: rgb(29, 75, 182);
+    font-size: 35px;
+}
