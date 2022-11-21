@@ -2,12 +2,14 @@ import * as coinsAPI from '../../utilities/coins-api'
 import { useEffect, useState } from 'react'
 import './AllCoinPage.css'
 import CoinHeader from '../../components/CoinHeader/CoinHeader'
+import CoinTable from '../../components/CoinTable/CoinTable'
 
 export default function AllCoinPage() {
     const [coins, setCoins] = useState([])
     const [search, setSearch] = useState('')
 
     function handleSearch(evt) {
+        evt.preventDefault()
         setSearch(evt.target.value)
     }
 
@@ -41,21 +43,17 @@ export default function AllCoinPage() {
                 value={search}
                 onChange={handleSearch}
                 />
-                <table className='table-coin'>
-                    <tr className='table-row-coin'>
-                        <td>Logo</td>
-                        <td>Coin</td>
-                        <td>Name</td>
-                        <td>Price</td>
-                        <td>Market Cap</td>
-                    </tr>
-                </table>
+                <CoinTable />
                 {searchCoin.map((coin, idx) => (
                     <div key={idx} className='coinContainerRow'>
                         <span className='coin-image'><img src={coin.image} alt="" /></span>
                         <span className='coin-name'>{coin.name}</span>
                         <span className='coin-name'>${coin.current_price.toLocaleString()}</span>
-                        <span className='coin-price-change'>{coin.price_change_24h.toFixed(2)}%</span>
+                        <span className='coin-price-change'>
+                            <span className={coin.price_change_24h.toFixed(2) < 0.01 ? 'coin-red' : 'coin-green'}>
+                                {coin.price_change_24h.toFixed(2)}%
+                            </span>
+                        </span>
                         <span className='coin-name'>${coin.market_cap.toLocaleString()}</span>
                     </div>
                 ))}

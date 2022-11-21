@@ -5,6 +5,7 @@ import './CoinHeader.css'
 
 export default function CoinHeader({coins, setCoins}) {
 
+    // fixs that the ticker isnt with
     const items = coins.map((coin) => {
         return <div className='coin-ticker-container'>
                 <div className='image-coin-ticker'><img src={coin.image} alt="" id='coin-ticker-image' /></div>

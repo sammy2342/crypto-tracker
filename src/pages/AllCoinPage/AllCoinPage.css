@@ -106,5 +106,13 @@ img {
     font-size: 18px;
     font-weight: 500;
     font-family: sa;
-    
+
+}
+
+.coin-green {
+    color: greenyellow;
+}
+
+.coin-red { 
+    color: red;
 }
