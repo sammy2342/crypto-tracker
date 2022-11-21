@@ -100,3 +100,11 @@ img {
     color: aliceblue;
     word-spacing: 6px;
 }
+
+.coin-name { 
+    color: aliceblue;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: sa;
+    
+}

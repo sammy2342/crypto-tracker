@@ -5,6 +5,15 @@ import CoinHeader from '../../components/CoinHeader/CoinHeader'
 
 export default function AllCoinPage() {
     const [coins, setCoins] = useState([])
+    const [search, setSearch] = useState('')
+
+    function handleSearch(evt) {
+        setSearch(evt.target.value)
+    }
+
+    const searchCoin = coins.filter((coin) => { 
+        return coin.id.toLowerCase().includes(search.toLowerCase())
+    })
 
     useEffect( function () { 
         console.log('this effect is running')
@@ -24,7 +33,14 @@ export default function AllCoinPage() {
             <CoinHeader coins={coins} setCoins={setCoins}/>
             <div className='coinContainer'>
                 <h1 className='search-coin-title'>Cryptocurrency Find Your Coin</h1>
-                <input type="search" name="" id="coin-page-search-input-crypto" placeholder='Search For Crypto Coin...'/>
+                <input 
+                type="search"
+                name="search"
+                id="coin-page-search-input-crypto"
+                placeholder='Search For Crypto Coin...'
+                value={search}
+                onChange={handleSearch}
+                />
                 <table className='table-coin'>
                     <tr className='table-row-coin'>
                         <td>Logo</td>
@@ -34,13 +50,13 @@ export default function AllCoinPage() {
                         <td>Market Cap</td>
                     </tr>
                 </table>
-                {coins.map((coin, idx) => (
+                {searchCoin.map((coin, idx) => (
                     <div key={idx} className='coinContainerRow'>
                         <span className='coin-image'><img src={coin.image} alt="" /></span>
-                        <span>{coin.name}</span>
-                        <span>${coin.current_price}</span>
-                        <span className='coin-price-change'>{coin.price_change_24h.toFixed(2)}</span>
-                        <span>{coin.market_cap}</span>
+                        <span className='coin-name'>{coin.name}</span>
+                        <span className='coin-name'>${coin.current_price.toLocaleString()}</span>
+                        <span className='coin-price-change'>{coin.price_change_24h.toFixed(2)}%</span>
+                        <span className='coin-name'>${coin.market_cap.toLocaleString()}</span>
                     </div>
                 ))}
             </div>
