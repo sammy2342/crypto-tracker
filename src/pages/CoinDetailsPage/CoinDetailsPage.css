@@ -4,17 +4,25 @@
 }
 
 .coin-details-left-container {
-    width: 30%;
+    width: 29%;
+    border-right: 4px solid white;
+    border-radius: 2px;
+    margin-right: 10px;
+    margin-top: 30px;
+    overflow-y: scroll;
+    overflow-y:scroll; 
+    position:relative;
+    height: 90vh;
 }
 
 .chart-coin-container {
-    width: 70%;
+    width: 69%;
+    margin-left: 10px;
 }
 
 .img-coin-detail-page > img{
     height: 190px;
     width: 190px;
-    margin-top: 70px;
 }
 
 .name-coin-detail-page {
