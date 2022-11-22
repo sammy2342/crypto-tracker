@@ -6,5 +6,7 @@ router.get('/', coinsCtrl.index)
 
 router.get('/:id', coinsCtrl.show)
 
+// router.get('/:id', coinsCtrl.chart)
+
 
 module.exports = router

@@ -2,11 +2,13 @@ const Coin = require('../../models/coin')
 const coinKey = process.env.API_KEY
 const coinIdKey = process.env.API_ID_KEY
 const axios = require('axios')
+const coinChart = process.env.API_COIN_CHAR
 
 
 module.exports = {
     index,
     show,
+    // chart,
 }
 
 
@@ -26,10 +28,22 @@ async function show(req, res) {
     try {
         // const coinId = Coin.findById
         const response = await axios.get(`${coinIdKey}/${req.params.id}`)
-        console.log(coinIdKey)
+        // console.log(coinIdKey)
         res.json(response.data)
     } catch(err) {
         console.log(err)
         res.status(400).json(err)
     }
 }
+
+// async function chart(req, res) { 
+//     console.log(req.params.id)
+//     try {
+//         const response = await axios.get(`${coinIdKey}/${req.params.id}/${coinChart}`)
+//         console.log(coinChart, 'thos os foro=---------')
+//         console.log(response)
+//     } catch(err) {
+//         console.log(err)
+//         res.status(400).json(err)
+//     }
+// }
