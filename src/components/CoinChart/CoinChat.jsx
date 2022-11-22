@@ -43,11 +43,15 @@ export default function CoinChart({ data, setData}) {
                             return newDate
                         }),
                         datasets: [
-                            chartData.data.prices.map((price) => {
-                                return price[1]
-                            }),
-                            
-                        ]
+                            {
+                                label: chartData.data.market_caps.map((price) => {
+                                    return price[1]
+                                }),
+                                data: [chartData.data.market_caps[1]],
+                                backgroundColor: 'gold'
+                            // height={300},
+                            }
+                    ]
                     }}
                 />
             </div>
