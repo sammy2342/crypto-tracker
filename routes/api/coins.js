@@ -4,5 +4,7 @@ const coinsCtrl = require('../../controllers/api/coins')
 
 router.get('/', coinsCtrl.index)
 
+router.get('/:id', coinsCtrl.show)
+
 
 module.exports = router

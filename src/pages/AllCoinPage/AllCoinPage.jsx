@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import './AllCoinPage.css'
 import CoinHeader from '../../components/CoinHeader/CoinHeader'
 import CoinTable from '../../components/CoinTable/CoinTable'
+import { Link } from 'react-router-dom'
 
 export default function AllCoinPage() {
     const [coins, setCoins] = useState([])
@@ -46,7 +47,7 @@ export default function AllCoinPage() {
                 <CoinTable />
                 {searchCoin.map((coin, idx) => (
                     <div key={idx} className='coinContainerRow'>
-                        <span className='coin-image'><img src={coin.image} alt="" /></span>
+                        <Link to={`/coins/${coin.id}`}><span className='coin-image'><img src={coin.image} alt="" /></span></Link>
                         <span className='coin-name'>{coin.name}</span>
                         <span className='coin-name'>${coin.current_price.toLocaleString()}</span>
                         <span className='coin-price-change'>
