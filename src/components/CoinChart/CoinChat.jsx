@@ -40,19 +40,33 @@ export default function CoinChart({ data, setData}) {
                     data={{
                         labels: chartData.data.market_caps.map(date => {
                             let newDate = new Date(date[0])
-                            return newDate
+                            return newDate.toDateString()
                         }),
                         datasets: [
                             {
                                 label: chartData.data.market_caps.map((price) => {
                                     return price[1]
                                 }),
-                                data: [chartData.data.market_caps[1]],
-                                backgroundColor: 'gold'
+                                data: 
+                                    chartData.data.market_caps.map((price) => {
+                                        return price[1]
+                                    }),
+                                backgroundColor: 'gold',
+                                showLine: true,
+                                borderColor: 'gold'
                             // height={300},
                             }
                     ]
                     }}
+                    options={
+                        {   
+                            elements: {
+                                point: {
+                                    radius: 0
+                                }
+                            }
+                        }
+                    }
                 />
             </div>
             </>: null}
