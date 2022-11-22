@@ -1,6 +1,7 @@
 import { useState, useEffect} from 'react'
 import { Line } from 'react-chartjs-2'
 import { CategoryScale, Chart, LinearScale, PointElement, PointElementint } from "chart.js"
+import './CoinChart.css'
 import 'chart.js/auto'
 
 import axios from 'axios'
@@ -37,6 +38,8 @@ export default function CoinChart({ data, setData}) {
             {chartData ? <>
             <div>
                 <Line 
+                    height={'200px'}
+                    width={'300px'}
                     data={{
                         labels: chartData.data.market_caps.map(date => {
                             let newDate = new Date(date[0])
@@ -53,7 +56,8 @@ export default function CoinChart({ data, setData}) {
                                     }),
                                 backgroundColor: 'gold',
                                 showLine: true,
-                                borderColor: 'gold'
+                                borderColor: 'gold',
+                                height: '900px'
                             // height={300},
                             }
                     ]
