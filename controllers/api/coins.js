@@ -25,6 +25,7 @@ async function index(req, res) {
 
 async function show(req, res) { 
     console.log(req.params.id, 'req params id')
+    // console.log(req.user)
     try {
         // const coinId = Coin.findById
         const response = await axios.get(`${coinIdKey}/${req.params.id}`)

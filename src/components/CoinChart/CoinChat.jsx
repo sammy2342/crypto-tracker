@@ -9,7 +9,7 @@ import axios from 'axios'
 
 export default function CoinChart({ data, setData}) { 
 
-    const [days, setDays] = useState('')
+    const [days, setDays] = useState('90')
     const [chartData, setChartData] = useState(null)
 
     function handleDayClick(evt) { 
