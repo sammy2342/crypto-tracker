@@ -9,36 +9,46 @@ import axios from 'axios'
 
 export default function CoinChart({ data, setData}) { 
 
+    const [days, setDays] = useState('')
     const [chartData, setChartData] = useState(null)
-    // Chart.register(CategoryScale, LinearScale, PointElement, PointElementint)
+
+    function handleDayClick(evt) { 
+        evt.preventDefault()
+        setDays('1')
+    }
+
+    function handleWeekClick(evt) {
+        evt.preventDefault()
+        setDays('7')
+    }
+
+    function handleMonthClick(evt) {
+        evt.preventDefault()
+        setDays('30')
+    }
+
+    function handleYearClick(evt) {
+        evt.preventDefault()
+        setDays('365')
+    }
 
     useEffect( function () {
         async function getChartData() {
-            let respone = await axios.get(`https://api.coingecko.com/api/v3/coins/${data.id}/market_chart?vs_currency=usd&days=30`)
+            let respone = await axios.get(`https://api.coingecko.com/api/v3/coins/${data.id}/market_chart?vs_currency=usd&days=${days}`)
             setChartData(respone)
             console.log(respone.data.market_caps[0][0])
         }
         getChartData()
-    }, [])
+    }, [days])
     
-    // function date() {
-        // console.log(new Date(chartData.data.market_caps[0][0]))
-    // }
-    // date()
 
-    // function test() {
-    //     chartData.data.market_caps.map(date => {
-    //         console.log(new Date(date[0]))
-    //     })
-    // }
-    // test()
 
     return ( 
         <div>
             {chartData ? <>
             <div>
                 <Line 
-                    height={'200px'}
+                    height={'190px'}
                     width={'300px'}
                     data={{
                         labels: chartData.data.market_caps.map(date => {
@@ -74,6 +84,12 @@ export default function CoinChart({ data, setData}) {
                 />
             </div>
             </>: null}
+            <div className='button-container-days'>
+                    <div><button type="submit" className='button-days-coins' onClick={handleDayClick}> days</button></div>
+                    <div><button type="submit" className='button-days-coins' onClick={handleWeekClick}> weeks</button></div>
+                    <div><button type="submit" className='button-days-coins' onClick={handleMonthClick}> month</button></div>
+                    <div><button type="submit" className='button-days-coins' onClick={handleYearClick}> year</button></div>
+            </div>
         </div>
     )
 }
