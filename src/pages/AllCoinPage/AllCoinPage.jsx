@@ -43,6 +43,7 @@ export default function AllCoinPage() {
                 placeholder='Search For Crypto Coin...'
                 value={search}
                 onChange={handleSearch}
+                autoComplete='off'
                 />
                 <CoinTable />
                 {searchCoin.map((coin, idx) => (
