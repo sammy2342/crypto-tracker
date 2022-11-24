@@ -48,7 +48,7 @@ export default function CoinChart({ data, setData}) {
             {chartData ? <>
             <div>
                 <Line 
-                    height={'190px'}
+                    height={'180px'}
                     width={'300px'}
                     data={{
                         labels: chartData.data.market_caps.map(date => {

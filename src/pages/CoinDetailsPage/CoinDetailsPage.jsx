@@ -30,6 +30,7 @@ export default function CoinDetailsPage() {
                     <div className="coin-dtail-page-rank">Rank: {data.market_cap_rank}</div>
                     <div className="coin-dtail-page-market">Market Cap: ${data.market_data.market_cap.usd.toLocaleString()}</div>
                     {/* <div>{data.country_origin}</div> */}
+                    <button className="add-coin-watchlist">Add Coin To WatchList</button>
                 </div>
                 <div className="chart-coin-container">
                     <CoinChart data={data} setData={setData}/>
