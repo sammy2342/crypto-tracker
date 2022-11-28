@@ -9,10 +9,12 @@ module.exports = {
     index,
     show,
     // chart,
+    create,
 }
 
 
 async function index(req, res) { 
+    console.log(req.user, 'this is for the req.user')
     try {
         const response = await axios.get(coinKey)
         // console.log({response})
@@ -25,7 +27,7 @@ async function index(req, res) {
 
 async function show(req, res) { 
     console.log(req.params.id, 'req params id')
-    // console.log(req.user)
+    console.log(req.user ,'this is for the id')
     try {
         // const coinId = Coin.findById
         const response = await axios.get(`${coinIdKey}/${req.params.id}`)
@@ -48,3 +50,14 @@ async function show(req, res) {
 //         res.status(400).json(err)
 //     }
 // }
+
+async function create(req, res) { 
+    console.log(req.user, 'this is user data')
+    try { 
+        const profile = console.log(req.user)
+        console.log(profile, 'this is')
+    } catch(err) {
+        console.log(err)
+        res.status(400).json(err)
+    }
+}

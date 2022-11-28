@@ -12,6 +12,21 @@ export default function CoinChart({ data, setData}) {
     const [days, setDays] = useState('90')
     const [chartData, setChartData] = useState(null)
 
+    // const daysInInterval = {
+    //     day: 1,
+    //     week: 7,
+    //     month: 30,
+    //     year: 365,
+    // };
+
+    // function handleIntervalClick(evt) {
+    //     evt.preventDefault();
+    //     const interval = evt.target.name;
+    //     if (!interval) return;
+
+    //     setDays(interval);
+    // }
+
     function handleDayClick(evt) { 
         evt.preventDefault()
         setDays('1')
@@ -49,7 +64,7 @@ export default function CoinChart({ data, setData}) {
             <div>
                 <Line 
                     height={'180px'}
-                    width={'300px'}
+                    width={'299px'}
                     data={{
                         labels: chartData.data.market_caps.map(date => {
                             let newDate = new Date(date[0])

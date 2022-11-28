@@ -6,6 +6,7 @@ router.get('/', coinsCtrl.index)
 
 router.get('/:id', coinsCtrl.show)
 
+router.post('/', coinsCtrl.create)
 // router.get('/:id', coinsCtrl.chart)
 
 

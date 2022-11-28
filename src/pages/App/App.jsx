@@ -8,6 +8,7 @@ import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage'
 import NavBar from '../../components/NavBar/NavBar'
 import AllCoinPage from '../AllCoinPage/AllCoinPage';
 import CoinDetailsPage from '../CoinDetailsPage/CoinDetailsPage';
+import ProfilePage from '../ProfilesPage/ProfilePage';
 
 export default function App() {
   const [user, setUser] = useState(getUser())
@@ -21,6 +22,7 @@ export default function App() {
             <Route path="/coins" element={<AllCoinPage />} />
             <Route path="/orders" element={<OrderHistoryPage />} />
             <Route path="/coins/:coinId" element={<CoinDetailsPage />} />
+            <Route path='/profile' element={<ProfilePage />} /> 
           </Routes>
         </>
         :

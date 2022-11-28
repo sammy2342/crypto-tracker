@@ -9,3 +9,7 @@ export function getAllCoin() {
 export function getSingleCoin(id) {
     return sendRequest(`${BASE_URL}/${id}`)
 }
+
+function createCoin(coinData) { 
+    return sendRequest(BASE_URL, 'POST', coinData)
+}
