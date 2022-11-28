@@ -26,9 +26,8 @@ async function create(req, res) {
     console.log(req.user, 'this is for the eqr USER')
     console.log(req.body.username, 'this is for the username ')
     try { 
-        // req.body.id === req.user._id
-        req.body.username === req.user
         const profile = await Profile.create(req.body)
+        profile.save()
         res.json(profile)
     } catch(err) {
         console.log(err)
@@ -37,12 +36,14 @@ async function create(req, res) {
 }
 
 async function newCoin(req, res) { 
+    console.log(req.body)
     console.log(req.params, 'this is for the id')
-    console.log(req.user, 'this is for the user in the create funtoin')
+    // console.log(req.user, 'this is for the user in the create funtoin')
     try {   
-        if(req.body.username === req.user.name) {
-            const profile = Profile.findById(req.params.id)
+        if(req.body.username === req.params.id) {
+            const profile = await Profile.findById(req.params._id).populate('Coin')
             console.log(profile)
+            // console.log(profile, 'this is for the profipe')
             profile.watchList.push(req.body)
             profile.save()
         }

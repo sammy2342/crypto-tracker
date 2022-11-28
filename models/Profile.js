@@ -21,6 +21,7 @@ const watchListSchema = new Schema({
 const profileSchema = new Schema ({
     id: String, 
     username: String,
+    coin: {type: Schema.Types.ObjectId, ref: 'Coin', required: false },
     // photo as an ice box future
     watchList: [watchListSchema]
 }, { 

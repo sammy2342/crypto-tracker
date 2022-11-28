@@ -27,10 +27,14 @@ async function index(req, res) {
 
 async function show(req, res) { 
     console.log(req.params.id, 'req params id')
-    console.log(req.user ,'this is for the id')
+    // console.log(req.user ,'this is for the id')
     try {
         // const coinId = Coin.findById
         const response = await axios.get(`${coinIdKey}/${req.params.id}`)
+        const coinId = req.params.id
+        const newCoinId = new Coin({coinId})
+        console.log(newCoinId, coinId)
+        newCoinId.save()
         // console.log(coinIdKey)
         res.json(response.data)
     } catch(err) {
@@ -52,7 +56,7 @@ async function show(req, res) {
 // }
 
 async function create(req, res) { 
-    console.log(req.user, 'this is user data')
+    console.log(req.user, 'this is user data in coins')
     try { 
         const profile = console.log(req.user)
         console.log(profile, 'this is')
