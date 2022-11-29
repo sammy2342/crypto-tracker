@@ -19,11 +19,11 @@ const watchListSchema = new Schema({
 })
 
 const profileSchema = new Schema ({
-    id: String, 
+    // id: String, 
     username: String,
-    coin: {type: Schema.Types.ObjectId, ref: 'Coin', required: false },
+    // coin: {type: Schema.Types.ObjectId, ref: 'Coin', required: false },
     // photo as an ice box future
-    watchList: [watchListSchema]
+    watchList: []
 }, { 
     timestamps: true
 })

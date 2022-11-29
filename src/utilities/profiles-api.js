@@ -1,13 +1,13 @@
 import sendRequest from './send-request'
 
-const BASE_URL = 'api/profiles'
+const BASE_URL = '/api/profiles'
 
-function getAllProfile() { 
+function createProfile() { 
     return sendRequest(BASE_URL)
 }
 
-function createProfile(profileData) { 
-    return sendRequest(BASE_URL, 'POST', profileData)
+export function addToWatchList(coinId) { 
+    return sendRequest(`${BASE_URL}/watchlist/${coinId}`, 'POST')
 }
 
 function pushCoinProfile(profileId) { 

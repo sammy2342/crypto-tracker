@@ -82,7 +82,8 @@ export default function CoinChart({ data, setData}) {
                                 backgroundColor: 'gold',
                                 showLine: true,
                                 borderColor: 'gold',
-                                height: '900px'
+                                height: '900px',
+                                transitions: '2s'
                             // height={300},
                             }
                     ]
