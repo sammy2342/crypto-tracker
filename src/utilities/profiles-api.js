@@ -10,6 +10,6 @@ export function addToWatchList(coinId) {
     return sendRequest(`${BASE_URL}/watchlist/${coinId}`, 'POST')
 }
 
-function pushCoinProfile(profileId) { 
-    return sendRequest(`${BASE_URL}/${profileId}`)
+export function getProfile(id) { 
+    return sendRequest(`${BASE_URL}/${id}`)
 }

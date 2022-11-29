@@ -6,7 +6,7 @@ const axios = require('axios')
 module.exports = { 
     createProfile, 
     create,
-    newCoin
+    getProfile
 }
 
 async function createProfile(req, res) {
@@ -51,20 +51,14 @@ async function create(req, res) {
     }
 }
 
-async function newCoin(req, res) { 
-    console.log(req.body)
-    console.log(req.params, 'this is for the id')
-    console.log(req.user, 'this is forr the userr')
-    // console.log(req.user, 'this is for the user in the create funtoin')
-    try {   
-        if(req.body.username === req.params.id) {
-            const profile = await Profile.findById({_id: req.params._id}).populate('Coin')
-            console.log(profile)
-            // console.log(profile, 'this is for the profipe')
-            profile.watchList.push(req.body)
-            profile.save()
-        }
 
+
+
+async function getProfile(req, res) { 
+    console.log(req.params)
+    try {   
+        const findProfile = await Profile.findOne({ username: req.user._id})
+        res.json(findProfile)
     } catch (error) {
         console.log(error)
         res.status(400).json(error)

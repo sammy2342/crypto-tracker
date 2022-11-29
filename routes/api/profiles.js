@@ -9,7 +9,7 @@ router.post('/watchlist/:coinId', profileCtrl.create)
 
 // router.post('/', profileCtrl.create)
 
-router.get('/:id', profileCtrl.newCoin)
+router.get('/:id', profileCtrl.getProfile)
 
 
 

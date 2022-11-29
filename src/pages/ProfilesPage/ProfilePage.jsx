@@ -9,20 +9,27 @@ export default function ProfilePage() {
 
 
     useEffect( function() {
-        async function getWatchList() { 
-            const watchlist = await profileAPI.addToWatchList()
-            setWatchlist(watchlist.watchList)
+        async function findProfile() { 
+            // const watchlist = await profileAPI.addToWatchList()
+            // setWatchlist(watchlist.watchList)
+            const profile = await profileAPI.getProfile()
+            console.log(profile.watchList)
+            setWatchlist(profile.watchList)
         }
-        getWatchList()
+        findProfile()
     }, [])
 
 
 
     return ( 
-        <div>
-            <div>{watchlist.map((coin) => {
-                <li>{coin[0]}</li>
-            })}</div>
-        </div>
+        <>
+            {watchlist.length ? <>
+                <div>
+                    <h1>Hello</h1>
+                    <div>
+                        {watchlist.map((coin, idx) => {return <div key={idx}>{coin} <button>delete</button></div> })}</div>
+                </div>
+            </>: null}
+        </>
     )
 }
