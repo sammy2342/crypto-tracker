@@ -1,16 +1,28 @@
-import { useState } from "react"
-import * as createProfile from '../../utilities/profiles-api'
+import { useState, useEffect } from "react"
+import * as profileAPI from '../../utilities/profiles-api'
 
 
 export default function ProfilePage() { 
 
-    const [profile, setProfile] = useState({
-        
-    })
+    const [watchlist, setWatchlist] = useState([])
+
+
+
+    useEffect( function() {
+        async function getWatchList() { 
+            const watchlist = await profileAPI.addToWatchList()
+            setWatchlist(watchlist.watchList)
+        }
+        getWatchList()
+    }, [])
 
 
 
     return ( 
-        <div>Hello world</div>
+        <div>
+            <div>{watchlist.map((coin) => {
+                <li>{coin[0]}</li>
+            })}</div>
+        </div>
     )
 }
