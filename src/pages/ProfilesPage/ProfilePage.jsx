@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
 import * as profileAPI from '../../utilities/profiles-api'
+import Trending from '../../components/Trending/Trending'
 
 
 export default function ProfilePage() { 
@@ -8,7 +9,6 @@ export default function ProfilePage() {
     const [watchlist, setWatchlist] = useState([])
     const [profileId, setProfileId] = useState(null)
     const [allCoinsData, setAllCoinsData] = useState([])
-
 
 
     useEffect( function() {
@@ -40,6 +40,9 @@ export default function ProfilePage() {
     }, [])
 
     function getCoinImage(id) { 
+        // Optinal chaining 
+        // ?. it just return undefind or null instead of an error 
+        // null if the image dosent exit just give it a random imageplaceholder from the internet
         return allCoinsData.find(coin => coin.id === id)?.image.large || 'null'
     }
     getCoinImage()
@@ -48,11 +51,12 @@ export default function ProfilePage() {
         <>
             {watchlist.length ? <>
                 <div>
-                    <h1>Hello</h1>
+                    <h1>watchlist</h1>
                     <div>
-                        {watchlist.map((coin, idx) =>  <div key={idx}>{coin} <button onClick={(evt) => handleClickDelete(evt, coin)}>delete</button> <img src={getCoinImage(coin)} alt="" /></div> )}</div>
+                        {watchlist.map((coin, idx) =>  <div key={idx}><img src={getCoinImage(coin)} alt="" /> {coin} <button onClick={(evt) => handleClickDelete(evt, coin)}>delete</button> </div> )}</div>
                 </div>
             </>: null}
+            <Trending /> 
         </>
     )
 }
