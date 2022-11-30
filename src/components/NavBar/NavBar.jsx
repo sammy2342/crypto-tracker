@@ -18,7 +18,7 @@ export default function NavBar({ user, setUser }) {
                 <Link to="/orders" className='navbar-links'>Order History</Link>
                 &nbsp;  &nbsp;
                 <Link to='/profiles' className='navbar-links'>Profile</Link>
-                <Link to="/coins" className='navbar-links'>All Coins</Link>
+                <Link to="/" className='navbar-links'>All Coins</Link>
                 &nbsp;  &nbsp;
                 <span className='user-title-navbar'>Welcome, {user.name}</span>
                 &nbsp;  &nbsp;

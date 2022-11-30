@@ -112,6 +112,12 @@ img {
 
 }
 
+.coin-name:hover {
+    color: gold;
+    transition: 1s;
+    cursor: pointer;
+}
+
 .coin-green {
     color: greenyellow;
 }

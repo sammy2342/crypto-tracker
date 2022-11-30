@@ -49,8 +49,11 @@ export default function AllCoinPage() {
                 {searchCoin.map((coin, idx) => (
                     <div key={idx} className='coinContainerRow'>
                         <Link to={`/coins/${coin.id}`}><span className='coin-image'><img src={coin.image} alt="" />
-                        </span></Link>
+                        </span>
+                        </Link>
+                        <Link to={`/coins/${coin.id}`}>
                         <span className='coin-name'>{coin.name}</span>
+                        </Link>
                         <span className='coin-name'>${coin.current_price.toLocaleString()}</span>
                         <span className='coin-price-change'>
                             <span className={coin.price_change_24h.toFixed(2) < 0 ? 'coin-red' : 'coin-green'}>
