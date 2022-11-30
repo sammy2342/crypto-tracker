@@ -22,7 +22,7 @@ export default function App() {
             <Route path="/coins" element={<AllCoinPage />} />
             <Route path="/orders" element={<OrderHistoryPage />} />
             <Route path="/coins/:coinId" element={<CoinDetailsPage />} />
-            <Route path='/profiles' element={<ProfilePage />} /> 
+            <Route path='/profiles' element={<ProfilePage user={user}/>} /> 
             <Route path='/profiles/watchlist/:coinId' />
           </Routes>
         </>

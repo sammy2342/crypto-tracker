@@ -71,7 +71,10 @@
     font-size: 18px;
 }
 
-/* .outer-cointiner-card-trending {
-    width: 200px;
-    height: 92vh;
-} */
+.user-watchlist-name { 
+    font-size: 23px;
+    margin: 10px;
+    color: crimson;
+    letter-spacing: 2px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
