@@ -13,3 +13,7 @@ export function addToWatchList(coinId) {
 export function getProfile(id) { 
     return sendRequest(`${BASE_URL}/${id}`)
 }
+
+export function deleteCoinInWatchlist(watchlistId) {
+    return sendRequest(`${BASE_URL}/${watchlistId}`, 'DELETE')
+}

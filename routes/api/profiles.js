@@ -11,6 +11,8 @@ router.post('/watchlist/:coinId', profileCtrl.create)
 
 router.get('/:id', profileCtrl.getProfile)
 
+router.delete('/:id', profileCtrl.delete)
+
 
 
 

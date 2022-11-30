@@ -2,11 +2,13 @@ const User = require('../../models/user')
 const Profile = require('../../models/Profile')
 const Coin = require('../../models/coin')
 const axios = require('axios')
+const { deleteCoin } = require('../../src/utilities/profiles-api')
 
 module.exports = { 
     createProfile, 
     create,
-    getProfile
+    getProfile, 
+    delete: deleteCoinInWatchlist,
 }
 
 async function createProfile(req, res) {
@@ -65,5 +67,14 @@ async function getProfile(req, res) {
     }
 }
 
+
+async function deleteCoinInWatchlist(req, res) { 
+    try {
+        const removeCoin = await Profile.findOneAndDelete({ watchList: req.params.id })
+    } catch (error) {
+        console.log(error)
+        res.status(400).json(error)
+    }
+}
 
 

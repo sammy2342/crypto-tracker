@@ -1,3 +1,4 @@
+import axios from "axios"
 import { useState, useEffect } from "react"
 import * as profileAPI from '../../utilities/profiles-api'
 
@@ -19,6 +20,11 @@ export default function ProfilePage() {
         findProfile()
     }, [])
 
+    async function handleClickDelete(evt) { 
+        evt.preventDefault()
+        // const watchList = await profileAPI.deleteCoinInWatchlist()
+        // console.log(watchList)
+    }
 
 
     return ( 
@@ -27,7 +33,7 @@ export default function ProfilePage() {
                 <div>
                     <h1>Hello</h1>
                     <div>
-                        {watchlist.map((coin, idx) => {return <div key={idx}>{coin} <button>delete</button></div> })}</div>
+                        {watchlist.map((coin, idx) => {return <div key={idx}>{coin} <button onClick={handleClickDelete}>delete</button></div> })}</div>
                 </div>
             </>: null}
         </>
