@@ -2,7 +2,7 @@ import axios from "axios"
 import { useState, useEffect } from "react"
 import * as profileAPI from '../../utilities/profiles-api'
 import Trending from '../../components/Trending/Trending'
-
+import './ProfilePage.css'
 
 export default function ProfilePage() { 
 
@@ -50,13 +50,18 @@ export default function ProfilePage() {
     return ( 
         <>
             {watchlist.length ? <>
-                <div>
-                    <h1>watchlist</h1>
-                    <div>
-                        {watchlist.map((coin, idx) =>  <div key={idx}><img src={getCoinImage(coin)} alt="" /> {coin} <button onClick={(evt) => handleClickDelete(evt, coin)}>delete</button> </div> )}</div>
-                </div>
+            <div className="watchlist-trend-container">
+                    <div className="watchlist-container">
+                        <h1 className="watchlist-title-container">watchlist</h1>
+                        <div className="watchlist-container-coins">
+                            {watchlist.map((coin, idx) =>  <div key={idx} className='watchlist-coins-list-button-image'><img src={getCoinImage(coin)} alt="" /> {coin} <button className="watchlist-delete-button" onClick={(evt) => handleClickDelete(evt, coin)}>delete</button> </div> )}</div>
+                    </div>
+                    <div >
+                    <Trending /> 
+                    </div>
+            </div>
+            
             </>: null}
-            <Trending /> 
         </>
     )
 }
