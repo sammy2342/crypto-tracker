@@ -10,10 +10,10 @@ export function addToWatchList(coinId) {
     return sendRequest(`${BASE_URL}/watchlist/${coinId}`, 'POST')
 }
 
-export function getProfile(id) { 
-    return sendRequest(`${BASE_URL}/${id}`)
+export function getProfile() { 
+    return sendRequest(`${BASE_URL}/getProfile`)
 }
 
-export function deleteCoinInWatchlist(watchlistId) {
-    return sendRequest(`${BASE_URL}/${watchlistId}`, 'DELETE')
+export function deleteCoinInWatchlist(profileId, coinId) {
+    return sendRequest(`${BASE_URL}/${profileId}/coin/${coinId}`, 'DELETE')
 }

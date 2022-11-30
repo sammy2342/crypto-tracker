@@ -6,6 +6,8 @@ import * as profileAPI from '../../utilities/profiles-api'
 export default function ProfilePage() { 
 
     const [watchlist, setWatchlist] = useState([])
+    const [profileId, setProfileId] = useState(null)
+    const [allCoinsData, setAllCoinsData] = useState([])
 
 
 
@@ -14,18 +16,33 @@ export default function ProfilePage() {
             // const watchlist = await profileAPI.addToWatchList()
             // setWatchlist(watchlist.watchList)
             const profile = await profileAPI.getProfile()
-            console.log(profile.watchList)
+            // console.log(profile)
+            setProfileId(profile._id)
             setWatchlist(profile.watchList)
         }
         findProfile()
     }, [])
 
-    async function handleClickDelete(evt) { 
+    async function handleClickDelete(evt, coin) { 
         evt.preventDefault()
-        // const watchList = await profileAPI.deleteCoinInWatchlist()
-        // console.log(watchList)
+        const profile = await profileAPI.deleteCoinInWatchlist(profileId, coin)
+        // console.log(profile)
+        setWatchlist(profile.watchList)
     }
 
+    useEffect( function() { 
+        async function getAllCoins() {
+            const allCoins = await axios.get('https://api.coingecko.com/api/v3/coins?per_page=250')
+            // console.log(allCoins.data.data.id)
+            setAllCoinsData(allCoins.data)
+        }
+        getAllCoins()
+    }, [])
+
+    function getCoinImage(id) { 
+        return allCoinsData.find(coin => coin.id === id)?.image.large || 'null'
+    }
+    getCoinImage()
 
     return ( 
         <>
@@ -33,7 +50,7 @@ export default function ProfilePage() {
                 <div>
                     <h1>Hello</h1>
                     <div>
-                        {watchlist.map((coin, idx) => {return <div key={idx}>{coin} <button onClick={handleClickDelete}>delete</button></div> })}</div>
+                        {watchlist.map((coin, idx) =>  <div key={idx}>{coin} <button onClick={(evt) => handleClickDelete(evt, coin)}>delete</button> <img src={getCoinImage(coin)} alt="" /></div> )}</div>
                 </div>
             </>: null}
         </>
