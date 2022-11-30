@@ -85,3 +85,17 @@
     background-color: rgb(130, 215, 3);
     color: black;
 }
+
+.add-coin-watchlist-added {
+    background: rgb(207, 42, 23);
+    border: none;
+    outline: none;
+    color: rgb(106, 0, 0);
+    margin-top: 20px;
+    width: 50%;
+}
+
+.add-coin-watchlist-added:hover {
+    background: rgb(207, 42, 23);
+    color: black;
+}
