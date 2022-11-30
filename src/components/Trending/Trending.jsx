@@ -2,6 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import './Trending.css'
 
+
 export default function Trending() { 
 
     const [coinsTrending, setCoinsTrending] = useState([])

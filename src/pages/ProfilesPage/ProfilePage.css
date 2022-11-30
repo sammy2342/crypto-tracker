@@ -24,7 +24,7 @@
 }
 
 .trending-card-container { 
-    border: 2px solid rgb(14, 13, 14);
+    /* border: 2px solid rgb(14, 13, 14); */
     display: flex;
     flex-wrap: wrap;
     width: 300px;
@@ -32,7 +32,7 @@
     height: 180px;
     margin: 35px;
     margin-left: 100px;
-    background-color: rgb(126, 126, 126);
+    background: linear-gradient(to left, rgb(120, 120, 120), rgb(219, 217, 217)); 
     border-radius: 20px;
 }
 
