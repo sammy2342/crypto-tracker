@@ -53,8 +53,8 @@ export default function ProfilePage({ user }) {
             {watchlist.length ? <>
             <div className="watchlist-trend-container">
                     <div className="watchlist-container">
-                        <h1 className="watchlist-title-container">watchlist </h1>
-                        <h6 className="user-watchlist-name">{user.name} watchList</h6>
+                        <h1 className="watchlist-title-container">Watchlist </h1>
+                        <h6 className="user-watchlist-name">{user.name} watchList <span className="amount-of-coin-in-watchlist">{watchlist.length}</span></h6>
                         <div className="watchlist-container-coins">
                             {watchlist.map((coin, idx) =>  <div key={idx} className='watchlist-coins-list-button-image'><img src={getCoinImage(coin)} alt="" /> {coin} <button className="watchlist-delete-button" onClick={(evt) => handleClickDelete(evt, coin)}>delete</button> </div> )}</div>
                     </div>
