@@ -3,6 +3,7 @@ import { createContext, useContext, useReducer } from "react"
 
 const StateContext = createContext() 
 
+// rudercer reduced the function 
 export default function StateProvider({reducer, initialState, children}) {
 
     return ( 
@@ -12,4 +13,6 @@ export default function StateProvider({reducer, initialState, children}) {
     )
 }
 
+// shortcut
 export const useStateValue = () => useContext(StateContext)
+
