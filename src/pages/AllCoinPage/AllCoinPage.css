@@ -109,7 +109,8 @@ img {
     font-size: 18px;
     font-weight: 500;
     font-family: sa;
-
+    text-decoration: none;
+    outline: none;
 }
 
 .coin-name:hover {
@@ -124,4 +125,8 @@ img {
 
 .coin-red { 
     color: red;
+}
+
+a { 
+    text-decoration: none;
 }

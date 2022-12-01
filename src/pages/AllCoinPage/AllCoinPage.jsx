@@ -48,7 +48,7 @@ export default function AllCoinPage() {
                 <CoinTable />
                 {searchCoin.map((coin, idx) => (
                     <div key={idx} className='coinContainerRow'>
-                        <Link to={`/coins/${coin.id}`}><span className='coin-image'><img src={coin.image} alt="" />
+                        <Link style={{textDecoration: 'none'}} to={`/coins/${coin.id}`}><span className='coin-image'><img src={coin.image} alt="" />
                         </span>
                         </Link>
                         <Link to={`/coins/${coin.id}`}>

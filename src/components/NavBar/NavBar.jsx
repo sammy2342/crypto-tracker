@@ -15,7 +15,7 @@ export default function NavBar({ user, setUser }) {
                 <h1>Cryptofolio</h1>
             </div>
             <div className='navbar-links-container'>
-                <Link to="/orders" className='navbar-links'>Order History</Link>
+                {/* <Link to="/orders" className='navbar-links'>Order History</Link> */}
                 &nbsp;  &nbsp;
                 <Link to='/profiles' className='navbar-links'>Profile</Link>
                 <Link to="/" className='navbar-links'>All Coins</Link>
