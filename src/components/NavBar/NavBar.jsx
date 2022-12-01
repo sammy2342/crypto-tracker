@@ -1,9 +1,21 @@
 import { Link } from 'react-router-dom'
 import * as userService from '../../utilities/users-service'
 import './NavBar.css'
-
+import * as profileAPI from '../../utilities/profiles-api'
+import { useState, useEffect } from "react"
 
 export default function NavBar({ user, setUser }) {
+
+    const [itemsInWatchlist, setItemInWatchList] = useState([])
+
+    useEffect( function() { 
+        async function findWatchlistItem() {
+            const profile = await profileAPI.getProfile()
+            setItemInWatchList(profile.watchList)
+            console.log(itemsInWatchlist)
+        }
+        findWatchlistItem()
+    }, [itemsInWatchlist])
 
     function handleLogOut() {
         userService.logOut()
@@ -19,7 +31,7 @@ export default function NavBar({ user, setUser }) {
             <div className='navbar-links-container'>
                 {/* <Link to="/orders" className='navbar-links'>Order History</Link> */}
                 &nbsp;  &nbsp;
-                <Link to='/profiles' className='navbar-links'>Profile</Link>
+                <Link to='/profiles' className='navbar-links'>Profile <span className='length-items-in-watch-list-2'>{itemsInWatchlist.length}</span></Link>
                 <Link to="/" className='navbar-links'>All Coins</Link>
                 &nbsp;  &nbsp;
                 <span className='user-title-navbar'>Welcome, {user.name}</span>

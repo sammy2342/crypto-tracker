@@ -48,3 +48,17 @@
     font-size: 18px;
     font-weight: bold;
 }
+
+.length-items-in-watch-list-2 { 
+    color: rgb(255, 162, 0);
+    background-color: rgba(226, 103, 103, 0.2);
+    position: absolute;
+    border-radius: 20px;
+    padding-left: 4px;
+    padding-right: 4px;
+    /* left: 0; */
+    /* bottom: 10px; */
+    right: 380px;
+    top: 10px;
+    margin: 0;
+}
