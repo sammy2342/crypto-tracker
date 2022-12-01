@@ -13,6 +13,8 @@
     border-right: 3px solid rgb(253, 252, 252);
     width: 50%;
     height: 93vh;
+    overflow-y: scroll;
+    overflow-y:scroll; 
 }
 
 .coin-trending-cointner-card {

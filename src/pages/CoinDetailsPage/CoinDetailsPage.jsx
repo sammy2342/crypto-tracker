@@ -27,8 +27,8 @@ export default function CoinDetailsPage() {
     async function handleClick(evt) {
         evt.preventDefault()
         const res = await profilesApi.addToWatchList(coinId)
-        console.log(res, 'this')
-        console.log('this works')
+        // console.log(res, 'this')
+        // console.log('this works')
         setButton(!button)
     }
 
