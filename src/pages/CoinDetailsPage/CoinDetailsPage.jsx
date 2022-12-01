@@ -6,6 +6,8 @@ import ReactHtmlParser from "react-html-parser";
 import CoinChart from "../../components/CoinChart/CoinChat";
 import './CoinDetailsPage.css'
 import * as profilesApi from '../../utilities/profiles-api'
+import { useStateValue } from "../../context/StateProvider";
+import { SET_WATCHLIST_ACTION } from '../../context/reducer'
 
 export default function CoinDetailsPage() {
     const [data, setData] = useState(null);
@@ -13,6 +15,8 @@ export default function CoinDetailsPage() {
     const navigate = useNavigate()
     const { coinId } = useParams();
     const [button, setButton] = useState(false)
+    // if your not using the value _ "common  practice"
+    const [_, dispatch] = useStateValue()
     
     useEffect(() => {
         async function getCoinId() {
@@ -27,8 +31,9 @@ export default function CoinDetailsPage() {
     async function handleClick(evt) {
         evt.preventDefault()
         const res = await profilesApi.addToWatchList(coinId)
-        // console.log(res, 'this')
+        console.log(res, 'this')
         // console.log('this works')
+        dispatch({type: SET_WATCHLIST_ACTION, value: res.watchList})
         setButton(!button)
     }
 

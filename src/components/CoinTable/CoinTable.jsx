@@ -4,8 +4,8 @@ export default function CoinTable() {
             <tr className='table-row-coin'>
                 <td>Logo</td>
                 <td>Coin</td>
-                <td>Name</td>
                 <td>Price</td>
+                <td>Precent-Change</td>
                 <td>Market Cap</td>
             </tr>
         </table>

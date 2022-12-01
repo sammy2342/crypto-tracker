@@ -4,22 +4,35 @@ import * as profileAPI from '../../utilities/profiles-api'
 import Trending from '../../components/Trending/Trending'
 import './ProfilePage.css'
 import userEvent from "@testing-library/user-event"
+import { useStateValue } from "../../context/StateProvider"
+import { SET_WATCHLIST_ACTION } from '../../context/reducer'
 
 export default function ProfilePage({ user }) { 
 
-    const [watchlist, setWatchlist] = useState([])
+    // const [watchlist, setWatchlist] = useState([])
     const [profileId, setProfileId] = useState(null)
     const [allCoinsData, setAllCoinsData] = useState([])
+    // dispatch is like set state
+    // dispatch pass in an action 
+    // action looks like this {type: 'ACTION_TYPE', value}
+    const [{itemsInWatchList: watchlist}, dispatch] = useStateValue()
+
+    const setWatchlist = (value) => dispatch({type: SET_WATCHLIST_ACTION, value})
 
 
     useEffect( function() {
         async function findProfile() { 
             // const watchlist = await profileAPI.addToWatchList()
+            // console.log('FINDPROFIEL____>>>>>><<<<<')
+
             // setWatchlist(watchlist.watchList)
             const profile = await profileAPI.getProfile()
             // console.log(profile)
+            // console.log(profile)
             setProfileId(profile._id)
             setWatchlist(profile.watchList)
+            // console.log(itemsInWatchList, 'thissss')
+            // dispatch({type: SET_WATCHLIST_ACTION, value: ['sammy']})
         }
         findProfile()
     }, [])
@@ -28,7 +41,7 @@ export default function ProfilePage({ user }) {
         evt.preventDefault()
         const profile = await profileAPI.deleteCoinInWatchlist(profileId, coin)
         // console.log(profile)
-        setWatchlist(profile.watchList)
+        dispatch({type: SET_WATCHLIST_ACTION, value: profile.watchList})
     }
 
     useEffect( function() { 
