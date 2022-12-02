@@ -2,11 +2,13 @@ export const initialState = {
     itemsInWatchList: [],
 }
 
+// you can use any varabile name you want
 export const SET_WATCHLIST_ACTION = 'SET_WATCHLIST_ACTION'
 
 
 // the state is the current state 
-// action is the action tht was dispatch 
+// action is the action that was dispatch 
+// dispatch means send off to
 const reducer = (state, action) => {
     // action
     // same as 
