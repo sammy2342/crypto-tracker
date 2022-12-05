@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Link } from 'react-router-dom'
 import * as coinsAPI from '../../utilities/coins-api'
-import ReactHtmlParser from "react-html-parser";
 import CoinChart from "../../components/CoinChart/CoinChat";
 import './CoinDetailsPage.css'
 import * as profilesApi from '../../utilities/profiles-api'
